@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState } from 'react';
+import {Routes,Route} from 'react-router-dom';
+import Header from './Components/Header/Header.js'
+import Main from './Components/Meals/Meals.js'
+import DataCustomer from './Components/DataCustomer/DataCustomer.js';
+export const CounterContext = createContext(); 
 
 function App() {
+  const [count, setCount] = useState([]); 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CounterContext.Provider value={{ count, setCount }}>
+      <div className="app">
+        <Header /> 
+   <Routes>
+    <Route path='/' element={<Main/>}></Route>
+    <Route path='dataCustomer' element={<DataCustomer/>} ></Route>
+   </Routes>
+      </div>
+    </CounterContext.Provider>
   );
 }
 
