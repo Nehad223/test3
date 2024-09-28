@@ -13,8 +13,8 @@ function App() {
       <div className="app">
         <Header /> 
    <Routes>
-    <Route path='/' element={<Main/>}></Route>
-    <Route path='dataCustomer' element={<DataCustomer/>} ></Route>
+    <Route path='main' element={<Main/>}></Route>
+    <Route path='main/dataCustomer' element={<DataCustomer/>} ></Route>
    </Routes>
       </div>
     </CounterContext.Provider>
